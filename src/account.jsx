@@ -52,6 +52,13 @@ function Account() {
             <span> Hello </span>
             {customerState.name}
           </h2>
+
+          {accountState.loan > 0 && (
+            <p>
+              You owe <span>{accountState.loan}</span> Loan Amount
+            </p>
+          )}
+
           <form className="depositForm" onSubmit={depositHandler}>
             <div>
               <Input
@@ -123,11 +130,8 @@ function Account() {
                     }
                   />
                 </div>
-                <button>Withdraw</button>
+                <button>Pay Loan</button>
               </form>
-              <p>
-                You owe <span>{accountState.loan}</span> Loan Amount
-              </p>
             </>
           )}
 
@@ -144,7 +148,7 @@ function Account() {
                   onChange={(e) => setReqLoanAmount(+e.target.value)}
                 />
               </div>
-              <button>Withdraw</button>
+              <button>Request Loan</button>
             </form>
           )}
         </div>
